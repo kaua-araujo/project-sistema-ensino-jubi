@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Index
 Route::get('/', [IndexController::class, 'index'])->name('ensinoJubi.index');
-
+//Curso
 Route::get('/Cursos', [CoursesController::class, 'form'])->name('courses.index');
 Route::get('/Cursos/Cadastrar-Cursos', [CreateCourseController::class, 'formCreate'])->name('createCourse.form');
 Route::post('/Cursos/Cadastrar-Cursos/Criar', [CreateCourseController::class, 'create'])->name('createCourse.create');
