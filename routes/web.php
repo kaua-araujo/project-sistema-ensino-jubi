@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\courses\CoursesController;
+use App\Http\Controllers\courses\CreateCourseController;
 use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +18,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, 'index'])->name('ensinoJubi.index');
 
-Route::get('/Cadastro-de-cursos',);
+Route::get('/Cursos', [CoursesController::class, 'form'])->name('courses.index');
+Route::get('/Cursos/Cadastrar-Cursos', [CreateCourseController::class, 'formCreate'])->name('createCourse.form');
+Route::post('/Cursos/Cadastrar-Cursos/Criar', [CreateCourseController::class, 'create'])->name('createCourse.create');

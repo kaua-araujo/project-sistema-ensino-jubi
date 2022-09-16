@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Repositeries\Course;
+namespace App\Repositories\Course;
 
+use App\Http\Dtos\Course\createCourseDto;
 use App\Models\course;
-use App\Repositeries\Interfaces\Courses\CourseRepositoryInterface;
+use App\Repositories\Interfaces\Course\CourseRepositoryInterface;
 
 class CourseRepository implements CourseRepositoryInterface
 {
@@ -13,13 +14,21 @@ class CourseRepository implements CourseRepositoryInterface
     {
         $this->model = new course();
     }
-    public function create()
+    public function create(createCourseDto $createCourseDto)
     {
-
+        try {
+            return $this->model::create($createCourseDto->toArray());
+        } catch (\Throwable $th) {
+            return null;
+        }
     }
     public function index()
     {
-
+        try {
+            return $this->model::all();
+        } catch (\Throwable $th) {
+            return null;
+        }
     }
     public function destroy()
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositeries\Interfaces\Registration;
+namespace App\Repositories\Interfaces\Registration;
 
 interface RegistrationRepositoryInterface
 {

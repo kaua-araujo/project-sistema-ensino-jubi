@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositeries\Interfaces\Student;
+namespace App\Repositories\Interfaces\Student;
 
 interface StudentRepositoryInterface
 {
