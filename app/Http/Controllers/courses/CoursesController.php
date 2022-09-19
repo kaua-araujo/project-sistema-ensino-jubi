@@ -4,6 +4,7 @@ namespace App\Http\Controllers\courses;
 
 use App\Http\Controllers\Controller;
 use App\Http\Services\course\indexCourseService;
+use App\Http\Services\course\showCourseService;
 use Illuminate\Http\Request;
 
 class CoursesController extends Controller
@@ -15,8 +16,19 @@ class CoursesController extends Controller
                 return view('courses/indexCourses',[
                     'courses' => $courses
                 ]);
-        } catch (\Throwable $e) {
-            return response()->json(["error" => $e->getMessage()],400);
+        } catch (\Exception $e) {
+            return null;
+        }
+    }
+    public function show(showCourseService $service, Request $request)
+    {
+        try {
+            $course = $service->show($request->id);
+            return view('courses/ShowCourse', [
+                'course' => $course,
+            ]);
+        } catch (\Exception $e) {
+            return null;
         }
     }
 }

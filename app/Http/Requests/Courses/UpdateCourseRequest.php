@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class CreateCourseRequest extends FormRequest
+class UpdateCourseRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,8 +27,8 @@ class CreateCourseRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'description' => 'required|min:5|max:500',
+            'title' => 'nullable',
+            'description' => 'nullable|min:5|max:500',
         ];
     }
 
@@ -40,8 +40,6 @@ class CreateCourseRequest extends FormRequest
     public function messages() 
     {
         return [
-            'title.required' => 'É necessário preencher o nome do curso!',
-            'description.required' => 'É necessário preencher o campo de descrição!',
             'description.min' => 'A descrição deve ter no minimo 5 caracteres!',
             'description.max' => 'A descrição deve ter no máximo 500 caracteres!',
         ];

@@ -13,5 +13,7 @@
         <input type="text" name="description" placeholder="Descrição do curso">
         <button type="submit">Cadastrar</button>
     </form>
+    <br>
+    <a href={{route('courses.index')}} class="btn btn-dark">Voltar</a>
 </body>
 </html>
