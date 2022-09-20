@@ -194,7 +194,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\Course\CourseProvider::class
+        App\Providers\Course\CourseProvider::class,
+        App\Providers\Student\StudentProvider::class,
+        App\Providers\Registration\RegistrationProvider::class,
 
     ],
 

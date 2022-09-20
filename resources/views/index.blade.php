@@ -10,7 +10,7 @@
 <body>
     <br>
     <div class="d-grid gap-2 col-6 mx-auto">
-        <a href="#" class="btn btn-dark">Cadastro de Alunos</a>
+        <a href={{ route('students.index')}} class="btn btn-dark">Cadastro de Alunos</a>
         <a href={{ route('courses.index')}} class="btn btn-dark">Cadastro de Cursos</a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>

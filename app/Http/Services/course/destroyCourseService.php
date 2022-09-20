@@ -20,7 +20,7 @@ class destroyCourseService
 
         $course = $this->repository->destroy($id);
         if (!$course){
-            throw new Exception("Não foi possível excluir o regulamento!");
+            throw new Exception("Não foi possível excluir o curso!");
         }
         return $course;
     }

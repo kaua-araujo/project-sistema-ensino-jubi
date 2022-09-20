@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id()->primary();
             $table->string('name');
             $table->string('email')->unique();
-            $table->dateTime('birth_date')->nullable();
+            $table->date('birth_date')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

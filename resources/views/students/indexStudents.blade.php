@@ -9,28 +9,31 @@
 
 </head>
 <body>
-    <center><h2>Cursos - Ensino Jubi</h2></center>
+    <center><h2>Alunos - Ensino Jubi</h2></center>
     <br>
     <div align="right">
-    <a href={{ route('createCourse.form')}} class="btn btn-success">Cadastrar Cursos</a>
+    <a href={{ route('createStudents.form')}} class="btn btn-success">Cadastrar Alunos</a>
     </div>
     <table class="table">
         <thead>
-            <th>Cursos</th>
-            <th>Descrição</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Data de Aniversário</th>
             <th>Info</th>
             <th>Edit</th>
             <th>Delete</th>
         </thead>
-        @foreach ($courses as $course)
+        @foreach ($students as $student)
         <tbody>
-            <td>{{$course->title}}</td>
-            <td>{{$course->description}}</td>
-            <td><a href={{route('show.course', $course->id)}} class="btn btn-warning rounded-circle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16"></svg></a>
+            <td>{{$student->name}}</td>
+            <td>{{$student->email}}</td>
+            <td>{{date( 'd-m-Y' ,
+                strtotime($student->birth_date))}}</td>
+            <td><a href={{route('show.student', $student->id)}} class="btn btn-warning rounded-circle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16"></svg></a>
             </td>
-            <td><a href={{route('updateCourse.form', $course->id)}} class="btn btn-primary rounded-circle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16"></svg></a>
+            <td><a href={{route('updateStudent.form', $student->id)}} class="btn btn-primary rounded-circle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16"></svg></a>
             </td>
-            <td><a href={{route('course.destroy', $course->id)}} class="btn btn-danger rounded-circle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16"></svg></a>
+            <td><a href={{route('student.destroy', $student->id)}} class="btn btn-danger rounded-circle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16"></svg></a>
             </td>
         </tbody>     
         @endforeach

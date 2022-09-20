@@ -2,11 +2,16 @@
 
 namespace App\Repositories\Interfaces\Student;
 
+use App\Http\Dtos\Course\updateCourseDto;
+use App\Http\Dtos\Students\createStudentDto;
+use App\Http\Dtos\Students\updateStudentsDto;
+use App\Models\student;
+
 interface StudentRepositoryInterface
 {
-    public function create();
     public function index();
-    public function destroy();
-    public function update();
-    public function show();
+    public function create(createStudentDto $createStudentDto);
+    public function destroy(string $id);
+    public function update(updateStudentsDto $updateStudentsDto, string $id): ?student;
+    public function show(string $id): ?student;
 }
