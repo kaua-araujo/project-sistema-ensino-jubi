@@ -2,11 +2,14 @@
 
 namespace App\Repositories\Interfaces\Registration;
 
+use App\Models\registration;
+use Illuminate\Database\Eloquent\Collection;
+
 interface RegistrationRepositoryInterface
 {
-    public function create();
     public function index();
-    public function destroy();
-    public function update();
-    public function show();
+    public function create();
+    public function show(string $id);
+    public function destroy(string $id);
+    public function update(string $id);
 }

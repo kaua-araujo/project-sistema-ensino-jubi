@@ -3,7 +3,6 @@
 namespace App\Http\Services\course;
 
 use App\Repositories\Interfaces\Course\CourseRepositoryInterface;
-use Exception;
 use Illuminate\Database\Eloquent\Collection;
 
 class indexCourseService

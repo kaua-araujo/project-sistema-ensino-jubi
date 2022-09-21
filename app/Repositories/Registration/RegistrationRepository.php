@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Repositeries\Course;
+namespace App\Repositories\Registration;
 
-use App\Models\course;
 use App\Models\registration;
-use App\Repositeries\Interfaces\Registration\RegistrationRepositoryInterface;
+use App\Repositories\Interfaces\Registration\RegistrationRepositoryInterface;
 
 class RegistrationRepository implements RegistrationRepositoryInterface
 {
@@ -20,18 +19,33 @@ class RegistrationRepository implements RegistrationRepositoryInterface
     }
     public function index()
     {
-
+        try {
+            return $this->model::all();
+        } catch (\Throwable $th) {
+            return 'erro';
+        }
     }
-    public function destroy()
+    public function destroy(string $id)
+    {
+        try {
+
+            $registration = $this->model::find($id);
+            return $registration->delete($id) ?$registration: null;
+
+        } catch (\Throwable $th) {
+            return null;
+        }
+    }
+    public function update(string $id)
     {
 
     }
-    public function update()
+    public function show(string $id)
     {
-
-    }
-    public function show()
-    {
-
+        try {
+            return $this->model::find($id);
+        } catch (\Throwable $th) {
+            return null;
+        }
     }
 }

@@ -5,6 +5,8 @@ use App\Http\Controllers\courses\CoursesController;
 use App\Http\Controllers\courses\CourseUpdateController;
 use App\Http\Controllers\courses\CreateCourseController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\registrations\CreateRegistrationController;
+use App\Http\Controllers\registrations\IndexRegistrationsController;
 use App\Http\Controllers\students\createStudentController;
 use App\Http\Controllers\students\DestroyStudentsController;
 use App\Http\Controllers\students\IndexStudentsController;
@@ -51,3 +53,10 @@ Route::get('/', [IndexController::class, 'index'])->name('ensinoJubi.index');
     Route::post('/Alunos/editar-aluno/{id}/editar', [UpdateStudentController::class, 'update'])->name('updateStudent.update');
     //Delete
     Route::get('/Alunos/deletar-aluno/{id}', [DestroyStudentsController::class, 'destroy'])->name('student.destroy');
+
+//Matrículas
+    Route::get('/Matrículas', [IndexRegistrationsController::class, 'index'])->name('registrations.index');
+    //show
+    Route::get('Matrículas/Show/{id}', [IndexRegistrationsController::class, 'show'])->name('show.registration');
+    //Create
+    Route::get('Matricula/cadastrar-matricula', [CreateRegistrationController::class, 'formCreate'])->name('createRegistration.form');

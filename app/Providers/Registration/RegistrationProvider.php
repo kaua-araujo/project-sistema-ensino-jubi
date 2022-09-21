@@ -2,7 +2,7 @@
 
 namespace App\Providers\Registration;
 
-use App\Repositories\Course\RegistrationRepository;
+use App\Repositories\Registration\RegistrationRepository;
 use App\Repositories\Interfaces\Registration\RegistrationRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
