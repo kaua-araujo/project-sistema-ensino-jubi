@@ -6,6 +6,7 @@ use App\Http\Controllers\courses\CourseUpdateController;
 use App\Http\Controllers\courses\CreateCourseController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\students\createStudentController;
+use App\Http\Controllers\students\DestroyStudentsController;
 use App\Http\Controllers\students\IndexStudentsController;
 use App\Http\Controllers\students\UpdateStudentController;
 use Illuminate\Support\Facades\Route;
@@ -35,7 +36,7 @@ Route::get('/', [IndexController::class, 'index'])->name('ensinoJubi.index');
     Route::get('/Cursos/editar-curso/{id}', [CourseUpdateController::class, 'updateForm'])->name('updateCourse.form');
     Route::post('/Cursos/editar-curso/{id}', [CourseUpdateController::class, 'update'])->name('updateCourse.update');
     //Delete
-    Route::post('/Cursos/deletar-curso/{id}', [CourseDestroyController::class, 'destroy'])->name('course.destroy');
+    Route::get('/Cursos/deletar-curso/{id}', [CourseDestroyController::class, 'destroy'])->name('course.destroy');
 
 //Alunos
     //index
@@ -43,10 +44,10 @@ Route::get('/', [IndexController::class, 'index'])->name('ensinoJubi.index');
     //Show
     Route::get('Cursos/Show/{id}', [IndexStudentsController::class, 'show'])->name('show.student');
     //Create
-    Route::get('/Alunos/cadastrar-alunos',[createStudentController::class, 'formCreate'])->name('createStudents.form');
-    Route::post('/Alunos/cadastrar-alunos/create',[createStudentController::class, 'create'])->name('createStudents.create');
+    Route::get('/Alunos/cadastrar-alunos', [createStudentController::class, 'formCreate'])->name('createStudents.form');
+    Route::post('/Alunos/cadastrar-alunos/create', [createStudentController::class, 'create'])->name('createStudents.create');
     //Update
-    Route::get('/Alunos/editar-aluno/{id}',[UpdateStudentController::class,'updateForm'])->name('updateStudent.form');
+    Route::get('/Alunos/editar-aluno/{id}', [UpdateStudentController::class,'updateForm'])->name('updateStudent.form');
     Route::post('/Alunos/editar-aluno/{id}/editar', [UpdateStudentController::class, 'update'])->name('updateStudent.update');
     //Delete
-    Route::post('/Alunos/deletar-aluno/{id}')->name('student.destroy');
+    Route::get('/Alunos/deletar-aluno/{id}', [DestroyStudentsController::class, 'destroy'])->name('student.destroy');
