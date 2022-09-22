@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 interface CourseRepositoryInterface
 {
-    public function index(): ?Collection;
+    public function index();
     public function create(createCourseDto $createCourseDto);
     public function destroy(string $id);
     public function update(updateCourseDto $updateCourseDto, string $id): ?course;

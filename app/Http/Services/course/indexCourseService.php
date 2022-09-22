@@ -14,7 +14,7 @@ class indexCourseService
         return $this->repository = $repository;
     }
     
-    public function execute(): ?Collection
+    public function execute()
     {
         $course = $this->repository->index();
         return $course;

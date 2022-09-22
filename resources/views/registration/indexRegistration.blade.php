@@ -17,7 +17,7 @@
     </div>
     <table class="table">
         <thead>
-            <th>Cursos</th>
+            <th>Curso</th>
             <th>Descrição</th>
             <th>Info</th>
             <th>Edit</th>
@@ -25,7 +25,7 @@
         </thead>
         @foreach ($registrations as $registration)
         <tbody>
-            <td>{{$registration->title}}</td>
+            <td>{{$registration->course}}</td>
             <td>{{$registration->description}}</td>
             <td><a href={{route('show.registration', $registration->id)}} class="btn btn-warning rounded-circle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16"></svg></a>
             </td>

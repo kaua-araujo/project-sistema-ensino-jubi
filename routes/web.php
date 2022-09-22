@@ -44,7 +44,7 @@ Route::get('/', [IndexController::class, 'index'])->name('ensinoJubi.index');
     //index
     Route::get('/Alunos', [IndexStudentsController::class, 'index'])->name('students.index');
     //Show
-    Route::get('Cursos/Show/{id}', [IndexStudentsController::class, 'show'])->name('show.student');
+    Route::get('Alunos/Show/{id}', [IndexStudentsController::class, 'show'])->name('show.student');
     //Create
     Route::get('/Alunos/cadastrar-alunos', [createStudentController::class, 'formCreate'])->name('createStudents.form');
     Route::post('/Alunos/cadastrar-alunos/create', [createStudentController::class, 'create'])->name('createStudents.create');
@@ -60,3 +60,4 @@ Route::get('/', [IndexController::class, 'index'])->name('ensinoJubi.index');
     Route::get('Matrículas/Show/{id}', [IndexRegistrationsController::class, 'show'])->name('show.registration');
     //Create
     Route::get('Matricula/cadastrar-matricula', [CreateRegistrationController::class, 'formCreate'])->name('createRegistration.form');
+    Route::post('Matrícula/cadastrar-matricula/create', [CreateRegistrationController::class, 'create'])->name('createRegistration.create');

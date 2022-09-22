@@ -19,7 +19,7 @@ class createRegistrationService
         
         $registration = $this->repository->create($createRegistrationDto);
         if (!$registration){
-            throw new Exception("Não foi possível criar o curso");
+            throw new Exception("Não foi possível criar a matrícula");
         }
         return $registration;
     }

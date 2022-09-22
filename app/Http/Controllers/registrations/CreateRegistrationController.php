@@ -8,6 +8,7 @@ use App\Http\Requests\Registrations\createRegistrationRequest;
 use App\Http\Services\course\indexCourseService;
 use App\Http\Services\registrations\createRegistrationService;
 use App\Http\Services\student\indexStudentService;
+use Illuminate\Support\Facades\Redirect;
 
 class CreateRegistrationController extends Controller
 {
@@ -30,7 +31,9 @@ class CreateRegistrationController extends Controller
     public function create(createRegistrationRequest $request, createRegistrationService $createRegistrationService)
     {
         try {
-            $registration = new createRegistrationDto($request->all());
+            $dataRegistration = new createRegistrationDto($request->all());
+            $createRegistrationService->execute($dataRegistration);
+            return Redirect::route('registrations.index');
         } catch (\Throwable $th) {
             return null;
         }

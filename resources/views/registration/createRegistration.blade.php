@@ -7,7 +7,7 @@
     <title>Cadastro de Aluno</title>
 </head>
 <body>
-    <form action={{route('createStudents.create')}} method="POST">
+    <form action={{route('createRegistration.create')}} method="POST">
         @csrf
         <select name="student_id">
             <option selected>Selecione o aluno</option>
@@ -24,6 +24,6 @@
         <button type="submit">Cadastrar</button>
     </form>
     <br>
-    <a href={{route('students.index')}} class="btn btn-dark">Voltar</a>
+    <a href={{route('registrations.index')}} class="btn btn-dark">Voltar</a>
 </body>
 </html>

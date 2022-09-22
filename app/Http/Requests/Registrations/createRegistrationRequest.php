@@ -27,9 +27,8 @@ class createRegistrationRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required|min:5|max:500',
-            'birth_date'=> 'required'
+            'student_id' => 'required',
+            'course_id' => 'required',
         ];
     }
 
@@ -41,9 +40,8 @@ class createRegistrationRequest extends FormRequest
     public function messages() 
     {
         return [
-            'name.required' => 'É necessário preencher o nome do curso!',
-            'email.required' => 'É necessário preencher o campo de email!',
-            'birth_date'=> 'É necessário preencher a data de nascimento!'
+            'student_id.required' => 'É necessário preencher o nome do aluno!',
+            'course_id.required' => 'É necessário preencher o curso!',
         ];
     }
 }

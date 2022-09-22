@@ -26,7 +26,7 @@ class CourseRepository implements CourseRepositoryInterface
         }
 
     }
-    public function index(): ?Collection
+    public function index()
     {
 
         try {

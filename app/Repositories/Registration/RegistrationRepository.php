@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Registration;
 
+use App\Http\Dtos\Registration\createRegistrationDto;
 use App\Models\registration;
 use App\Repositories\Interfaces\Registration\RegistrationRepositoryInterface;
 
@@ -13,9 +14,13 @@ class RegistrationRepository implements RegistrationRepositoryInterface
     {
         $this->model = new registration();
     }
-    public function create()
+    public function create(createRegistrationDto $createRegistrationDto)
     {
-
+        try {
+            return $this->model::create($createRegistrationDto->toArray());
+        } catch (\Throwable $th) {
+            return null;
+        }
     }
     public function index()
     {
