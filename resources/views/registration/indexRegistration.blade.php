@@ -17,16 +17,20 @@
     </div>
     <table class="table">
         <thead>
+            <th>Aluno</th>
             <th>Curso</th>
-            <th>Descrição</th>
+            <th>Data de Inscrição</th>
             <th>Info</th>
             <th>Edit</th>
             <th>Delete</th>
         </thead>
+        @dd($registrations)
         @foreach ($registrations as $registration)
         <tbody>
-            <td>{{$registration->course}}</td>
-            <td>{{$registration->description}}</td>
+            <td>{{$registration->student_id}}</td>
+            <td>{{$registration->course_id}}</td>
+            <td>{{date( 'd-m-Y' ,
+                strtotime($registration->created_at))}}</td>
             <td><a href={{route('show.registration', $registration->id)}} class="btn btn-warning rounded-circle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16"></svg></a>
             </td>
             <td><a href={{route('updateCourse.form', $registration->id)}} class="btn btn-primary rounded-circle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16"></svg></a>
