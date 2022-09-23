@@ -7,6 +7,7 @@ use App\Http\Dtos\Course\createCourseDto;
 use App\Http\Requests\Courses\CreateCourseRequest;
 use App\Http\Services\Course\createCourseService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class CreateCourseController extends Controller
 {
@@ -18,9 +19,7 @@ class CreateCourseController extends Controller
         try {
             $dataCourse = new createCourseDto($request->all());
             $createCourseService->execute($dataCourse);
-            return response()->json([
-                "redirect" => route('courses.index')
-            ]);
+            return Redirect::route('courses.index');
         } catch (\Exception $e) {
             return response()->json(["error" => $e->getMessage()],400);
         }
