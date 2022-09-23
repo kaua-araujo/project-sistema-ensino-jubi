@@ -23,9 +23,9 @@ class IndexRegistrationsController extends Controller
     public function show(showRegistrationService $service, Request $request)
     {
         try {
-            $student = $service->execute($request->id);
-            return view('students/showStudent', [
-                'student' => $student,
+            $registration = $service->execute($request->id);
+            return view('registration/showRegistration', [
+                'registration' => $registration,
             ]);
         } catch (\Exception $e) {
             return null;

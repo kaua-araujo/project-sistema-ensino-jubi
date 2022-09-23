@@ -5,9 +5,10 @@ namespace App\Models;
 use App\Models\Traits\TraitUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class registration extends Model
+class registration extends Pivot
 {
     use HasFactory, SoftDeletes, TraitUuid;
     
@@ -21,13 +22,4 @@ class registration extends Model
         'student_id',
         'course_id',
     ];
-
-    public function student()
-    {
-        return $this->belongsTo(student::class);
-    }
-    public function course()
-    {
-        return $this->belongsTo(course::class);
-    }
 }

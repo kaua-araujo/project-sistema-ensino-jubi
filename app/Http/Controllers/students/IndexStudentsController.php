@@ -25,7 +25,7 @@ class IndexStudentsController extends Controller
         try {
             $student = $service->show($request->id);
             return view('students/showStudent', [
-                'student' => $student,
+                'student' => $student[0],
             ]);
         } catch (\Exception $e) {
             return null;

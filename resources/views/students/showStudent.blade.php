@@ -9,7 +9,6 @@
 <body>
     <h2>Informações do aluno: {{$student->name}}</h2>
     <form method="POST">
-        @csrf
         <label>Nome:</label>
         <input type="text" name="name" value="{{$student->name}}" disabled>
         <label>Email:</label>
@@ -17,6 +16,12 @@
         <label>Data de nascimento:</label>
         <input type="text" name="name" value="{{date( 'd-m-Y' , strtotime($student->birth_date))}}" disabled>    
     </form>
+    <h3>Aluno nos cursos:</h3>
+    @foreach ($student->courses as $course)
+    <li>{{$course->title}}</li>
+    <br>
+    @endforeach
+   
 
 
     <a href="{{route('students.index')}}">Voltar</a>

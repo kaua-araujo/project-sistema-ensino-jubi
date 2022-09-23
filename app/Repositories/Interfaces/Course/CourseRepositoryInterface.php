@@ -13,5 +13,5 @@ interface CourseRepositoryInterface
     public function create(createCourseDto $createCourseDto);
     public function destroy(string $id);
     public function update(updateCourseDto $updateCourseDto, string $id): ?course;
-    public function show(string $id): ?course;
+    public function show(string $id);
 }

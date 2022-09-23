@@ -15,6 +15,11 @@
         <label>Descrição:</label>
         <textarea type="text" name="description" rows="4" cols="50" disabled>{{$course->description}}</textarea>      
     </form>
+    <h3>Alunos matriculados:</h3>
+    @foreach ($course->student as $student)
+    <li>{{$student->name}}</li>
+    <br>
+    @endforeach 
 
 
     <a href="{{route('courses.index')}}">Voltar</a>

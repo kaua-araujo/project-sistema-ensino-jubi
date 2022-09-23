@@ -66,10 +66,10 @@ class CourseRepository implements CourseRepositoryInterface
             return null;
         }
     }
-    public function show(string $id): ?course
+    public function show(string $id)
     {
         try {
-            $course = $this->model::find($id);
+            $course = $this->model::with('student')->find(['id' => $id]);
             return $course;
         } catch (\Throwable $th) {
             null;

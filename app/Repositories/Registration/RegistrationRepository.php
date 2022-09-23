@@ -3,6 +3,7 @@
 namespace App\Repositories\Registration;
 
 use App\Http\Dtos\Registration\createRegistrationDto;
+use App\Http\Dtos\Registration\updateRegistrationDto;
 use App\Models\registration;
 use App\Repositories\Interfaces\Registration\RegistrationRepositoryInterface;
 
@@ -41,9 +42,20 @@ class RegistrationRepository implements RegistrationRepositoryInterface
             return null;
         }
     }
-    public function update(string $id)
+    public function update(updateRegistrationDto $updateRegistrationDto,string $id)
     {
-
+        try {
+            $registration = $this->model::find($id);
+            
+            if(!empty($updateRegistrationDto->course_id)){
+                    $registration->course_id = $updateRegistrationDto->course_id;
+                }
+                $registrationUpdated = $registration->save();
+                return $registration;
+                
+            } catch (\Throwable $th) {
+            return null;
+        }
     }
     public function show(string $id)
     {

@@ -22,4 +22,10 @@ class student extends Model
         'email',
         'birth_date',
     ];
+
+    public function courses()
+    {
+        return $this->belongsToMany(course::class, 'registrations', 'student_id', 'course_id')
+        ->using(registration::class)->withTimestamps();
+    }
 }

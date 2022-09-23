@@ -25,7 +25,7 @@ class CoursesController extends Controller
         try {
             $course = $service->show($request->id);
             return view('courses/ShowCourse', [
-                'course' => $course,
+                'course' => $course[0],
             ]);
         } catch (\Exception $e) {
             return null;
