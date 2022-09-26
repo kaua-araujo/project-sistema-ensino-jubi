@@ -15,8 +15,15 @@ class indexCourseService
     }
     
     public function execute()
-    {
-        $course = $this->repository->index();
-        return $course;
+    {   
+
+        try{
+            $course = $this->repository->index();
+            return $course;
+
+        } catch (\Exception $e) {
+            return response()->json(["error" => $e->getMessage()],400);
+        }
+        
     }
 }

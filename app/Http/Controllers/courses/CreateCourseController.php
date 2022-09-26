@@ -15,7 +15,9 @@ class CreateCourseController extends Controller
     {
         return view('courses\createCourse');
     }
+    
     public function create(CreateCourseRequest $request, createCourseService $createCourseService){
+
         try {
             $dataCourse = new createCourseDto($request->all());
             $createCourseService->execute($dataCourse);
@@ -23,5 +25,6 @@ class CreateCourseController extends Controller
         } catch (\Exception $e) {
             return response()->json(["error" => $e->getMessage()],400);
         }
+        
     }
 }

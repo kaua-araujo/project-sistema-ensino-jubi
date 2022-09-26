@@ -14,25 +14,29 @@ class CourseUpdateController extends Controller
 {
     public function updateForm(Request $request, showCourseService $service)
     {
+
         try {
             $course = $service->show($request->id);
             return view('courses/updateCourse', [
                 'course' => $course,
             ]);
         } catch (\Exception $e) {
-            return null;
+            return response()->json(["error" => $e->getMessage()],400);
         } 
+        
     }
 
     public function update(UpdateCourseRequest $request, updateCourseService $service, string $id)
     {
+
         try {
             $dataCourse = new updateCourseDto($request->all());
     
             $service->execute($dataCourse, $id);
             return Redirect::route('courses.index');
-        } catch (\Throwable $th) {
-            return null;
+        } catch (\Exception $e) {
+            return response()->json(["error" => $e->getMessage()],400);
         }
+
     }
 }

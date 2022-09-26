@@ -11,24 +11,15 @@ class IndexRegistrationsController extends Controller
 {
     public function index(indexRegistrationsService $service)
     {
+
         try {
-                $registrations = $service->execute();
-                return view('registration/indexRegistration',[
-                    'registrations' => $registrations
-                ]);
-        } catch (\Exception $e) {
-            return null;
-        }
-    }
-    public function show(showRegistrationService $service, Request $request)
-    {
-        try {
-            $registration = $service->execute($request->id);
-            return view('registration/showRegistration', [
-                'registration' => $registration,
+            $registrations = $service->execute();
+            return view('registration/indexRegistration',[
+                'registrations' => $registrations
             ]);
-        } catch (\Exception $e) {
-            return null;
+        } catch(\Exception $e) {
+            return response()->json(["error" => $e->getMessage()],400);
         }
+
     }
 }

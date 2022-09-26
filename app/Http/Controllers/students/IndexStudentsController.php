@@ -11,24 +11,15 @@ class IndexStudentsController extends Controller
 {
     public function index(indexStudentService $service)
     {
+
         try {
                 $student = $service->execute();
                 return view('students/indexStudents',[
                     'students' => $student
                 ]);
         } catch (\Exception $e) {
-            return null;
+            return response()->json(["error" => $e->getMessage()],400);
         }
-    }
-    public function show(showStudentService $service, Request $request)
-    {
-        try {
-            $student = $service->show($request->id);
-            return view('students/showStudent', [
-                'student' => $student[0],
-            ]);
-        } catch (\Exception $e) {
-            return null;
-        }
+        
     }
 }

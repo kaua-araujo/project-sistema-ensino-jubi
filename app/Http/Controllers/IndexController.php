@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    function index()
+    public function index()
     {
         try {
             return view('/index');

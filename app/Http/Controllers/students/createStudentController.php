@@ -16,7 +16,9 @@ class createStudentController extends Controller
     {
         return view('students\createStudent');
     }
+    
     public function create(CreateStudentRequest $request, createStudentService $createStudentService){
+
         try {
             $dataStudent = new createStudentDto($request->all());
             $createStudentService->execute($dataStudent);
@@ -24,6 +26,7 @@ class createStudentController extends Controller
         } catch (\Exception $e) {
             return response()->json(["error" => $e->getMessage()],400);
         }
+        
     }
     
 }

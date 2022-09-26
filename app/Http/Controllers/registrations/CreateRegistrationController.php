@@ -14,8 +14,8 @@ class CreateRegistrationController extends Controller
 {
     public function formCreate(indexStudentService $studentService, indexCourseService $courseSevice)
     {
+
         try {
-            
             $students = $studentService->execute();
             $courses = $courseSevice->execute();
 
@@ -23,19 +23,22 @@ class CreateRegistrationController extends Controller
                 'students' => $students,
                 'courses' => $courses
             ]);
-        } catch (\Throwable $th) {
-            return null;
+        } catch (\Exception $e) {
+            return response()->json(["error" => $e->getMessage()],400);
         }
+
     }
     
     public function create(createRegistrationRequest $request, createRegistrationService $createRegistrationService)
     {
+
         try {
             $dataRegistration = new createRegistrationDto($request->all());
             $createRegistrationService->execute($dataRegistration);
             return Redirect::route('registrations.index');
-        } catch (\Throwable $th) {
-            return null;
+        } catch (\Exception $e) {
+            return response()->json(["error" => $e->getMessage()],400);
         }
+        
     }
 }

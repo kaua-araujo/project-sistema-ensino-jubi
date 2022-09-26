@@ -10,6 +10,7 @@ class DestroyRegistrationController extends Controller
 {
     public function destroy(destroyRegistrationService $service, string $id)
     {
+
         try {
             $registrationDeleted = $service->execute($id);
             return Redirect::route('registrations.index');
@@ -17,5 +18,6 @@ class DestroyRegistrationController extends Controller
             return response()->json(['error'=>$e->getMessage()],400);
 
         }
+        
     }
 }

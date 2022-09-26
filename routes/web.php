@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\courses\CourseDestroyController;
 use App\Http\Controllers\courses\CoursesController;
+use App\Http\Controllers\courses\CourseShowController;
 use App\Http\Controllers\courses\CourseUpdateController;
 use App\Http\Controllers\courses\CreateCourseController;
 use App\Http\Controllers\IndexController;
@@ -12,6 +13,8 @@ use App\Http\Controllers\registrations\UpdateRegistrationController;
 use App\Http\Controllers\students\createStudentController;
 use App\Http\Controllers\students\DestroyStudentsController;
 use App\Http\Controllers\students\IndexStudentsController;
+use App\Http\Controllers\students\ShowStudentController;
+use App\Http\Controllers\students\ShowStudentControlller;
 use App\Http\Controllers\students\UpdateStudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,9 +33,9 @@ Route::get('/', [IndexController::class, 'index'])->name('ensinoJubi.index');
 
 //Curso
     //index
-    Route::get('/Cursos', [CoursesController::class, 'form'])->name('courses.index');
+    Route::get('/Cursos', [CoursesController::class, 'index'])->name('courses.index');
     //Show
-    Route::get('/Cursos/show/{id}', [CoursesController::class, 'show'])->name('show.course');
+    Route::get('/Cursos/show/{id}', [CourseShowController::class, 'show'])->name('show.course');
     //Create
     Route::get('/Cursos/cadastrar-cursos', [CreateCourseController::class, 'formCreate'])->name('createCourse.form');
     Route::post('/Cursos/cadastrar-cursos/create', [CreateCourseController::class, 'create'])->name('createCourse.create');
@@ -46,7 +49,7 @@ Route::get('/', [IndexController::class, 'index'])->name('ensinoJubi.index');
     //index
     Route::get('/Alunos', [IndexStudentsController::class, 'index'])->name('students.index');
     //Show
-    Route::get('Alunos/Show/{id}', [IndexStudentsController::class, 'show'])->name('show.student');
+    Route::get('Alunos/Show/{id}', [ShowStudentController::class, 'show'])->name('show.student');
     //Create
     Route::get('/Alunos/cadastrar-alunos', [createStudentController::class, 'formCreate'])->name('createStudents.form');
     Route::post('/Alunos/cadastrar-alunos/create', [createStudentController::class, 'create'])->name('createStudents.create');

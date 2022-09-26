@@ -11,6 +11,7 @@ class CourseDestroyController extends Controller
 
     public function destroy(destroyCourseService $service, string $id)
     {
+
         try {
             $courseDeleted = $service->execute($id);
             return Redirect::route('courses.index');
@@ -18,5 +19,6 @@ class CourseDestroyController extends Controller
             return response()->json(['error'=>$e->getMessage()],400);
 
         }
+        
     }
 }

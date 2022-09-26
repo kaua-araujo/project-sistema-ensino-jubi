@@ -16,6 +16,7 @@ class UpdateRegistrationController extends Controller
 {
     public function updateForm(Request $request, showRegistrationService $service, indexStudentService $indexStudentService, indexCourseService $indexCourseService)
     {
+
         try {
             $registration = $service->execute($request->id);
             $students = $indexStudentService->execute();
@@ -27,15 +28,17 @@ class UpdateRegistrationController extends Controller
                 'students' => $students
             ]);
         } catch (\Exception $e) {
-            return null;
+            return response()->json(["error" => $e->getMessage()],400);
         } 
+
     }
 
     public function update(updateRegistrationRequest $request, updateRegistrationService $service, string $id)
     {
         
-            $dataRegistration = new updateRegistrationDto($request->all());
-            $service->execute($dataRegistration, $id);
-            return Redirect::route('registrations.index');
+        $dataRegistration = new updateRegistrationDto($request->all());
+        $service->execute($dataRegistration, $id);
+        return Redirect::route('registrations.index');
+        
     }
 }
