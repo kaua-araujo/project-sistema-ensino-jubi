@@ -21,5 +21,4 @@ class CoursesController extends Controller
         }
         
     }
-    
 }

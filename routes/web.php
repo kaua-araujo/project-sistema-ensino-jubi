@@ -14,7 +14,6 @@ use App\Http\Controllers\students\createStudentController;
 use App\Http\Controllers\students\DestroyStudentsController;
 use App\Http\Controllers\students\IndexStudentsController;
 use App\Http\Controllers\students\ShowStudentController;
-use App\Http\Controllers\students\ShowStudentControlller;
 use App\Http\Controllers\students\UpdateStudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -60,6 +59,7 @@ Route::get('/', [IndexController::class, 'index'])->name('ensinoJubi.index');
     Route::get('/Alunos/deletar-aluno/{id}', [DestroyStudentsController::class, 'destroy'])->name('student.destroy');
 
 //Matrículas
+    //Index
     Route::get('/Matrículas', [IndexRegistrationsController::class, 'index'])->name('registrations.index');
     //Create
     Route::get('Matricula/cadastrar-matricula', [CreateRegistrationController::class, 'formCreate'])->name('createRegistration.form');
